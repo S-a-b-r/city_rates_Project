@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Rate;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //Paginator::useBootstrap();
+
+
+        //adminBlade
+        Blade::directive('author',function ($id){
+            return "<?php if(auth()->user()->id == $id): ?>";
+        });
+        Blade::directive('endauthor',function (){
+            return "<?php endif; ?>";
+        });
+
     }
 }

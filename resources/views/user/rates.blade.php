@@ -3,18 +3,14 @@
 @section('content')
     <div class="container">
         <div class="justify-content-center">
-            <h4>Отзывы по городу {{$city->name}}</h4>
-            <div>
-                @auth()
-                    <a href="{{route('rate.create', $city->id)}}"><button class="btn btn-outline-secondary">Добавить отзыв</button></a>
-                @endauth
-            </div>
+            <h4>Отзывы пользователя {{$user->fio}}</h4>
             <div class="row">
                 @if(count($rates) > 0)
                     @foreach($rates as $rate)
                         <div class="card m-3" style="width: 25rem;">
+                            <h5 class="mt-2">Город: {{$rate->city->name}}</h5>
 
-                            <img src="{{asset('storage/' . $rate->img)}}" class="card-img-top mt-2">
+                            <img src="{{asset('storage/' . $rate->img)}}" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{$rate->title}}</h5>
                                 <p class="card-text">{{$rate->text}}</p>
@@ -46,7 +42,7 @@
                         </div>
                     @endforeach
                 @else
-                    <p>Отзывов еще нет, будьте первым, кто оставит отзыв о вашем городе</p>
+                    <p>Пользователь еще не оставлял отзывов</p>
                 @endif
             </div>
 

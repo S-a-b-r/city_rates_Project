@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function index(Request $req){
-        $cities = City::all();
+        if(session()->has('city')){
+            return redirect()->route('city.show', session()->get('city'));
+        }
         $city = geoip()->getLocation($req->ip)['city'];
-        return view('index', compact('cities','city'));
+        return view('index', compact('city'));
     }
+
+
 }

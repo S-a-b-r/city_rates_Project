@@ -22,7 +22,16 @@ class CityController extends Controller
 
     public function show(City $city)
     {
+        session()->put('city', $city->id);
         $rates = Rate::where('id_city', $city->id)->get();
-        return view('city.show', compact('rates','city'));
+        return view('city.show', compact('rates', 'city'));
+    }
+
+
+    public function confirm($city)
+    {
+        $city = City::firstOrCreate(['name' => $city]);
+        session()->put('city', $city->id);
+        return redirect()->route('city.show', $city);
     }
 }
