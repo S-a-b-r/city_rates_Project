@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index'])->name('index');
 
+//Добавить middleware 'verified' для подтверждения верификации
 Route::group(['prefix' => 'cities'], function () {
     Route::get('/', [\App\Http\Controllers\CityController::class, 'index'])->name('city.index');
 
@@ -42,6 +44,5 @@ Route::group(['prefix'=>'users'], function(){
 });
 
 
-Auth::routes();
-
+Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
