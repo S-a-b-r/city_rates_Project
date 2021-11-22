@@ -21,7 +21,7 @@
                         <th scope="row">{{$city->id}}</th>
                         <td>{{$city->name}}</td>
                         <td>{{$city->rate}}</td>
-                        <td class="text-lg-center"><a href="{{route('city.show', $city->id)}}" >Просмотреть отзывы</a></td>
+                        <td class="text-lg-center"><a href="{{route('rates.city.show', $city->id)}}" >Просмотреть отзывы</a></td>
                     </tr>
                 @endforeach
                 </tbody>

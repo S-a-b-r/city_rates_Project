@@ -6,7 +6,7 @@
             <h4>Отзывы по городу {{$city->name}}</h4>
             <div>
                 @auth()
-                    <a href="{{route('rate.create', $city->id)}}"><button class="btn btn-outline-secondary">Добавить отзыв</button></a>
+                    <a href="{{route('rates.create', $city->id)}}"><button class="btn btn-outline-secondary">Добавить отзыв</button></a>
                 @endauth
             </div>
             <div class="row">
@@ -21,7 +21,7 @@
                                 <p>Rate: {{$rate->rate}}</p>
 
                                 @auth()
-                                <a href="{{route('user.show', $rate->creator)}}" style="color: black;">
+                                <a href="{{route('users.show', $rate->creator)}}" style="color: black;">
                                     <p>Author: {{$rate->creator->fio}}</p>
                                 </a>
                                 @endauth
@@ -32,9 +32,9 @@
 
                                 @auth
                                     @author($rate->id_author)
-                                        <a href="{{route('rate.edit', $rate->id)}}" class="btn btn-primary mb-2">Изменить отзыв</a>
+                                        <a href="{{route('rates.edit', $rate->id)}}" class="btn btn-primary mb-2">Изменить отзыв</a>
 
-                                        <form method="post" action="{{route('rate.destroy', $rate->id)}}">
+                                        <form method="post" action="{{route('rates.destroy', $rate->id)}}">
                                             @csrf
                                             @method('delete')
 

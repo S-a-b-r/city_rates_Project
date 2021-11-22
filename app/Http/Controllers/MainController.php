@@ -9,7 +9,7 @@ class MainController extends Controller
 {
     public function index(Request $req){
         if(session()->has('city')){
-            return redirect()->route('city.show', session()->get('city'));
+            return redirect()->route('rates.city.show', session()->get('city'));
         }
         $city = geoip()->getLocation($req->ip)['city'];
         return view('index', compact('city'));

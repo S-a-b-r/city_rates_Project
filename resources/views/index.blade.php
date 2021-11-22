@@ -8,8 +8,8 @@
                     Did you from {{$city}}?
                 </div>
                 <div class="card-body">
-                    <a href="{{route('city.confirm', $city)}}" class="btn btn-primary ">Yes</a>
-                    <a href="{{route('city.index')}}" class="btn btn-primary mx-5">No</a>
+                    <a href="{{route('cities.confirm', $city)}}" class="btn btn-primary ">Yes</a>
+                    <a href="{{route('cities.index')}}" class="btn btn-primary mx-5">No</a>
                 </div>
             </div>
         </div>

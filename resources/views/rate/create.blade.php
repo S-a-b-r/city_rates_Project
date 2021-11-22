@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="justify-content-center">
-            <form method="post" action="{{route('rate.store', $city->id)}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('rates.store', $city->id)}}" enctype="multipart/form-data">
                 @csrf
 
                 <h3>Создание отзыва для города {{$city->name}}</h3>

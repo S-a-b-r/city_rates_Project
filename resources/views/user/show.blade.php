@@ -11,9 +11,8 @@
                     <p class="card-text"> FIO: {{$user->fio}}</p>
                     <p class="card-text">Email: {{$user->email}}</p>
                     <p class="card-text">Phone number: {{$user->phone}}</p>
-
                 </div>
-                <div class="card-footer"><a href="{{route('user.rates.show', $user)}}">Просмотреть все отзывы пользователя</a></div>
+                <div class="card-footer"><a href="{{route('rates.user.show', $user)}}">Просмотреть все отзывы пользователя</a></div>
             </div>
         </div>
     </div>
